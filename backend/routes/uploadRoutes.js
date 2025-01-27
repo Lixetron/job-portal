@@ -4,10 +4,14 @@ import fs from 'fs';
 import {v4 as uuidv4} from 'uuid';
 import {promisify} from 'util';
 import {pipeline} from 'stream';
+import {fileURLToPath} from 'url';
+import path from 'path';
 
 const asyncPipeline = promisify(pipeline);
 const router = express.Router();
 const upload = multer();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 router.post('/resume', upload.single('file'), (req, res) => {
     const {file} = req;
