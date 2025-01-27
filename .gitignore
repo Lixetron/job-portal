@@ -119,3 +119,9 @@ Octotree
 
 backend/public/profile/*
 backend/public/resume/*
+
+# package-lock
+package-lock.json
+
+# IDE
+.idea/

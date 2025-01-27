@@ -1,3 +1,3 @@
-module.exports = {
-  jwtSecretKey: "jwt_secret",
+export default {
+    jwtSecretKey: 'jwt_secret',
 };
