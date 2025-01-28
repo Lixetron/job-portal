@@ -40,50 +40,50 @@ const Navbar = (props) => {
           userType() === "recruiter" ? (
             <>
               <Button color="inherit" onClick={() => handleClick("/home")}>
-                Home
+                Главная
               </Button>
               <Button color="inherit" onClick={() => handleClick("/addjob")}>
-                Add Jobs
+                Добавить вакансию
               </Button>
               <Button color="inherit" onClick={() => handleClick("/myjobs")}>
-                My Jobs
+                Мои вакансии
               </Button>
               <Button color="inherit" onClick={() => handleClick("/employees")}>
-                Employees
+                Работники
               </Button>
               <Button color="inherit" onClick={() => handleClick("/profile")}>
-                Profile
+                Профиль
               </Button>
               <Button color="inherit" onClick={() => handleClick("/logout")}>
-                Logout
+                Выйти
               </Button>
             </>
           ) : (
             <>
               <Button color="inherit" onClick={() => handleClick("/home")}>
-                Home
+                Главная
               </Button>
               <Button
                 color="inherit"
                 onClick={() => handleClick("/applications")}
               >
-                Applications
+                Заявки
               </Button>
               <Button color="inherit" onClick={() => handleClick("/profile")}>
-                Profile
+                Профиль
               </Button>
               <Button color="inherit" onClick={() => handleClick("/logout")}>
-                Logout
+                Выйти
               </Button>
             </>
           )
         ) : (
           <>
             <Button color="inherit" onClick={() => handleClick("/login")}>
-              Login
+              Войти
             </Button>
             <Button color="inherit" onClick={() => handleClick("/signup")}>
-              Signup
+              Регистрация
             </Button>
           </>
         )}

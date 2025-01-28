@@ -110,14 +110,14 @@ const JobTile = (props) => {
           <Grid item>
             <Rating value={job.rating !== -1 ? job.rating : null} readOnly />
           </Grid>
-          <Grid item>Role : {job.jobType}</Grid>
-          <Grid item>Salary : &#8377; {job.salary} per month</Grid>
+          <Grid item>Тип занятости: {job.jobType}</Grid>
+          <Grid item>Уровень дохода: BYN {job.salary} в месяц</Grid>
           <Grid item>
-            Duration :{" "}
-            {job.duration !== 0 ? `${job.duration} month` : `Flexible`}
+            Продолжительность:{" "}
+            {job.duration !== 0 ? `${job.duration} мес.` : `Flexible`}
           </Grid>
-          <Grid item>Posted By : {job.recruiter.name}</Grid>
-          <Grid item>Application Deadline : {deadline}</Grid>
+          <Grid item>Автор вакансии: {job.recruiter.name}</Grid>
+          <Grid item>Крайний срок подачи заявок: {deadline}</Grid>
 
           <Grid item>
             {job.skillsets.map((skill) => (
@@ -135,7 +135,7 @@ const JobTile = (props) => {
             }}
             disabled={userType() === "recruiter"}
           >
-            Apply
+            Принять
           </Button>
         </Grid>
       </Grid>
@@ -152,7 +152,7 @@ const JobTile = (props) => {
           }}
         >
           <TextField
-            label="Write SOP (upto 250 words)"
+            label="Напишите сопроводительное письмо (до 250 слов)"
             multiline
             rows={8}
             style={{ width: "100%", marginBottom: "30px" }}
@@ -174,7 +174,7 @@ const JobTile = (props) => {
             style={{ padding: "10px 50px" }}
             onClick={() => handleApply()}
           >
-            Submit
+            Подтвердить
           </Button>
         </Paper>
       </Modal>
@@ -197,7 +197,7 @@ const FilterPopup = (props) => {
         <Grid container direction="column" alignItems="center" spacing={3}>
           <Grid container item alignItems="center">
             <Grid item xs={3}>
-              Job Type
+              Тип занятости
             </Grid>
             <Grid
               container
@@ -223,7 +223,7 @@ const FilterPopup = (props) => {
                       }}
                     />
                   }
-                  label="Full Time"
+                  label="Полная занятость"
                 />
               </Grid>
               <Grid item>
@@ -243,7 +243,7 @@ const FilterPopup = (props) => {
                       }}
                     />
                   }
-                  label="Part Time"
+                  label="Частичная занятость"
                 />
               </Grid>
               <Grid item>
@@ -263,7 +263,7 @@ const FilterPopup = (props) => {
                       }}
                     />
                   }
-                  label="Work From Home"
+                  label="Удаленная работа"
                 />
               </Grid>
             </Grid>
@@ -294,12 +294,12 @@ const FilterPopup = (props) => {
           </Grid>
           <Grid container item alignItems="center">
             <Grid item xs={3}>
-              Duration
+              Продолжительность
             </Grid>
             <Grid item xs={9}>
               <TextField
                 select
-                label="Duration"
+                label="Продолжительность"
                 variant="outlined"
                 fullWidth
                 value={searchOptions.duration}
@@ -310,7 +310,7 @@ const FilterPopup = (props) => {
                   })
                 }
               >
-                <MenuItem value="0">All</MenuItem>
+                <MenuItem value="0">Все</MenuItem>
                 <MenuItem value="1">1</MenuItem>
                 <MenuItem value="2">2</MenuItem>
                 <MenuItem value="3">3</MenuItem>
@@ -323,7 +323,7 @@ const FilterPopup = (props) => {
           </Grid>
           <Grid container item alignItems="center">
             <Grid item xs={3}>
-              Sort
+              Сортировать
             </Grid>
             <Grid item container direction="row" xs={9}>
               <Grid
@@ -355,7 +355,7 @@ const FilterPopup = (props) => {
                 </Grid>
                 <Grid item>
                   <label for="salary">
-                    <Typography>Salary</Typography>
+                    <Typography>Уровень дохода</Typography>
                   </label>
                 </Grid>
                 <Grid item>
@@ -411,7 +411,7 @@ const FilterPopup = (props) => {
                 </Grid>
                 <Grid item>
                   <label for="duration">
-                    <Typography>Duration</Typography>
+                    <Typography>Продолжительность</Typography>
                   </label>
                 </Grid>
                 <Grid item>
@@ -467,7 +467,7 @@ const FilterPopup = (props) => {
                 </Grid>
                 <Grid item>
                   <label for="rating">
-                    <Typography>Rating</Typography>
+                    <Typography>Оценка</Typography>
                   </label>
                 </Grid>
                 <Grid item>
@@ -504,7 +504,7 @@ const FilterPopup = (props) => {
               style={{ padding: "10px 50px" }}
               onClick={() => getData()}
             >
-              Apply
+              Применить
             </Button>
           </Grid>
         </Grid>
@@ -640,11 +640,11 @@ const Home = (props) => {
           alignItems="center"
         >
           <Grid item xs>
-            <Typography variant="h2">Jobs</Typography>
+            <Typography variant="h2">Вакансии</Typography>
           </Grid>
           <Grid item xs>
             <TextField
-              label="Search Jobs"
+              label="Поиск вакансий"
               value={searchOptions.query}
               onChange={(event) =>
                 setSearchOptions({
@@ -691,7 +691,7 @@ const Home = (props) => {
             })
           ) : (
             <Typography variant="h5" style={{ textAlign: "center" }}>
-              No jobs found
+              Вакансии отсутствуют
             </Typography>
           )}
         </Grid>

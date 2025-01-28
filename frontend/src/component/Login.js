@@ -82,7 +82,7 @@ const Login = (props) => {
           setPopup({
             open: true,
             severity: "success",
-            message: "Logged in successfully",
+            message: "Успешная авторизация",
           });
           console.log(response);
         })
@@ -110,12 +110,12 @@ const Login = (props) => {
       <Grid container direction="column" spacing={4} alignItems="center">
         <Grid item>
           <Typography variant="h3" component="h2">
-            Login
+            Авторизация
           </Typography>
         </Grid>
         <Grid item>
           <EmailInput
-            label="Email"
+            label="Электронная почта"
             value={loginDetails.email}
             onChange={(event) => handleInput("email", event.target.value)}
             inputErrorHandler={inputErrorHandler}
@@ -125,7 +125,7 @@ const Login = (props) => {
         </Grid>
         <Grid item>
           <PasswordInput
-            label="Password"
+            label="Пароль"
             value={loginDetails.password}
             onChange={(event) => handleInput("password", event.target.value)}
             className={classes.inputBox}
@@ -138,7 +138,7 @@ const Login = (props) => {
             onClick={() => handleLogin()}
             className={classes.submitButton}
           >
-            Login
+            Войти
           </Button>
         </Grid>
       </Grid>

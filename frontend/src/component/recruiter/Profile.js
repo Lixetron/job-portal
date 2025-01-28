@@ -69,7 +69,7 @@ const Profile = (props) => {
         setPopup({
           open: true,
           severity: "error",
-          message: "Error",
+          message: "Ошибка",
         });
       });
   };
@@ -124,7 +124,7 @@ const Profile = (props) => {
         style={{ padding: "30px", minHeight: "93vh" }}
       >
         <Grid item>
-          <Typography variant="h2">Profile</Typography>
+          <Typography variant="h2">Профиль</Typography>
         </Grid>
         <Grid item xs style={{ width: "100%" }}>
           <Paper
@@ -141,7 +141,7 @@ const Profile = (props) => {
             <Grid container direction="column" alignItems="stretch" spacing={3}>
               <Grid item>
                 <TextField
-                  label="Name"
+                  label="ФИО"
                   value={profileDetails.name}
                   onChange={(event) => handleInput("name", event.target.value)}
                   className={classes.inputBox}
@@ -152,7 +152,7 @@ const Profile = (props) => {
               </Grid>
               <Grid item>
                 <TextField
-                  label="Bio (upto 250 words)"
+                  label="О себе (до 250 слов)"
                   multiline
                   rows={8}
                   style={{ width: "100%" }}
@@ -177,6 +177,7 @@ const Profile = (props) => {
                 }}
               >
                 <PhoneInput
+                  specialLabel={'Номер телефона'}
                   country={"in"}
                   value={phone}
                   onChange={(phone) => setPhone(phone)}
@@ -190,7 +191,7 @@ const Profile = (props) => {
               style={{ padding: "10px 50px", marginTop: "30px" }}
               onClick={() => handleUpdate()}
             >
-              Update Details
+              Обновить данные
             </Button>
           </Paper>
         </Grid>

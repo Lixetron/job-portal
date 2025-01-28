@@ -11,7 +11,7 @@ const Welcome = (props) => {
       style={{ padding: "30px", minHeight: "93vh" }}
     >
       <Grid item>
-        <Typography variant="h2">Welcome to Job Portal</Typography>
+        <Typography variant="h2">Добро пожаловать на JobPortal</Typography>
       </Grid>
     </Grid>
   );
@@ -28,7 +28,7 @@ export const ErrorPage = (props) => {
       style={{ padding: "30px", minHeight: "93vh" }}
     >
       <Grid item>
-        <Typography variant="h2">Error 404</Typography>
+        <Typography variant="h2">Ошибка 404</Typography>
       </Grid>
     </Grid>
   );

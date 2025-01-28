@@ -73,7 +73,7 @@ const FilterPopup = (props) => {
         <Grid container direction="column" alignItems="center" spacing={3}>
           <Grid container item alignItems="center">
             <Grid item xs={3}>
-              Application Status
+              Статус заявки
             </Grid>
             <Grid
               container
@@ -99,7 +99,7 @@ const FilterPopup = (props) => {
                       }}
                     />
                   }
-                  label="Rejected"
+                  label="Отклонено"
                 />
               </Grid>
               <Grid item>
@@ -119,7 +119,7 @@ const FilterPopup = (props) => {
                       }}
                     />
                   }
-                  label="Applied"
+                  label="Одобрено"
                 />
               </Grid>
               <Grid item>
@@ -139,14 +139,14 @@ const FilterPopup = (props) => {
                       }}
                     />
                   }
-                  label="Shortlisted"
+                  label="Отобрано"
                 />
               </Grid>
             </Grid>
           </Grid>
           <Grid container item alignItems="center">
             <Grid item xs={3}>
-              Sort
+              Сортировать
             </Grid>
             <Grid item container direction="row" xs={9}>
               <Grid
@@ -178,7 +178,7 @@ const FilterPopup = (props) => {
                 </Grid>
                 <Grid item>
                   <label for="name">
-                    <Typography>Name</Typography>
+                    <Typography>ФИО</Typography>
                   </label>
                 </Grid>
                 <Grid item>
@@ -234,7 +234,7 @@ const FilterPopup = (props) => {
                 </Grid>
                 <Grid item>
                   <label for="dateOfApplication">
-                    <Typography>Date of Application</Typography>
+                    <Typography>Дата заявки</Typography>
                   </label>
                 </Grid>
                 <Grid item>
@@ -290,7 +290,7 @@ const FilterPopup = (props) => {
                 </Grid>
                 <Grid item>
                   <label for="rating">
-                    <Typography>Rating</Typography>
+                    <Typography>Оценка</Typography>
                   </label>
                 </Grid>
                 <Grid item>
@@ -328,7 +328,7 @@ const FilterPopup = (props) => {
               style={{ padding: "10px 50px" }}
               onClick={() => getData()}
             >
-              Apply
+              Принять
             </Button>
           </Grid>
         </Grid>
@@ -380,14 +380,14 @@ const ApplicationTile = (props) => {
           setPopup({
             open: true,
             severity: "error",
-            message: "Error",
+            message: "Ошибка",
           });
         });
     } else {
       setPopup({
         open: true,
         severity: "error",
-        message: "No resume found",
+        message: "Резюме не найдено",
       });
     }
   };
@@ -434,7 +434,7 @@ const ApplicationTile = (props) => {
             }}
             onClick={() => updateStatus("shortlisted")}
           >
-            Shortlist
+            Отобрать
           </Button>
         </Grid>
         <Grid item xs>
@@ -446,7 +446,7 @@ const ApplicationTile = (props) => {
             }}
             onClick={() => updateStatus("rejected")}
           >
-            Reject
+            Отклонить
           </Button>
         </Grid>
       </>
@@ -462,7 +462,7 @@ const ApplicationTile = (props) => {
             }}
             onClick={() => updateStatus("accepted")}
           >
-            Accept
+            Принять
           </Button>
         </Grid>
         <Grid item xs>
@@ -474,7 +474,7 @@ const ApplicationTile = (props) => {
             }}
             onClick={() => updateStatus("rejected")}
           >
-            Reject
+            Отклонить
           </Button>
         </Grid>
       </>
@@ -489,7 +489,7 @@ const ApplicationTile = (props) => {
               color: "#ffffff",
             }}
           >
-            Rejected
+            Отклонено
           </Paper>
         </Grid>
       </>
@@ -504,7 +504,7 @@ const ApplicationTile = (props) => {
               color: "#ffffff",
             }}
           >
-            Accepted
+            Одобрено
           </Paper>
         </Grid>
       </>
@@ -519,7 +519,7 @@ const ApplicationTile = (props) => {
               color: "#ffffff",
             }}
           >
-            Cancelled
+            Отменено
           </Paper>
         </Grid>
       </>
@@ -534,7 +534,7 @@ const ApplicationTile = (props) => {
               color: "#ffffff",
             }}
           >
-            Finished
+            Завершено
           </Paper>
         </Grid>
       </>
@@ -586,7 +586,7 @@ const ApplicationTile = (props) => {
               .join(", ")}
           </Grid>
           <Grid item>
-            SOP: {application.sop !== "" ? application.sop : "Not Submitted"}
+            сопроводительное письмо: {application.sop !== "" ? application.sop : "Не отправлено"}
           </Grid>
           <Grid item>
             {application.jobApplicant.skills.map((skill) => (
@@ -602,7 +602,7 @@ const ApplicationTile = (props) => {
               color="primary"
               onClick={() => getResume()}
             >
-              Download Resume
+              Загрузить резюме
             </Button>
           </Grid>
           <Grid item container xs>
@@ -628,7 +628,7 @@ const ApplicationTile = (props) => {
             style={{ padding: "10px 50px" }}
             // onClick={() => changeRating()}
           >
-            Submit
+            Подтвердить
           </Button>
         </Paper>
       </Modal>
@@ -760,7 +760,7 @@ const JobApplications = (props) => {
             ))
           ) : (
             <Typography variant="h5" style={{ textAlign: "center" }}>
-              No Applications Found
+              Заявки отсутствуют
             </Typography>
           )}
         </Grid>

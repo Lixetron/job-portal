@@ -41,7 +41,7 @@ const MultifieldInput = (props) => {
         <Grid item container className={classes.inputBox} key={key}>
           <Grid item xs={6}>
             <TextField
-              label={`Institution Name #${key + 1}`}
+              label={`Учреждение образования #${key + 1}`}
               value={education[key].institutionName}
               onChange={(event) => {
                 const newEdu = [...education];
@@ -54,7 +54,7 @@ const MultifieldInput = (props) => {
           </Grid>
           <Grid item xs={3}>
             <TextField
-              label="Start Year"
+              label="Год поступления"
               value={obj.startYear}
               variant="outlined"
               type="number"
@@ -67,7 +67,7 @@ const MultifieldInput = (props) => {
           </Grid>
           <Grid item xs={3}>
             <TextField
-              label="End Year"
+              label="Год выпуска"
               value={obj.endYear}
               variant="outlined"
               type="number"
@@ -96,7 +96,7 @@ const MultifieldInput = (props) => {
           }
           className={classes.inputBox}
         >
-          Add another institution details
+          Добавить информацию об образовании
         </Button>
       </Grid>
     </>
@@ -161,7 +161,7 @@ const Profile = (props) => {
         setPopup({
           open: true,
           severity: "error",
-          message: "Error",
+          message: "Ошибка",
         });
       });
   };
@@ -224,7 +224,7 @@ const Profile = (props) => {
         style={{ padding: "30px", minHeight: "93vh" }}
       >
         <Grid item>
-          <Typography variant="h2">Profile</Typography>
+          <Typography variant="h2">Профиль</Typography>
         </Grid>
         <Grid item xs>
           <Paper
@@ -240,7 +240,7 @@ const Profile = (props) => {
             <Grid container direction="column" alignItems="stretch" spacing={3}>
               <Grid item>
                 <TextField
-                  label="Name"
+                  label="ФИО"
                   value={profileDetails.name}
                   onChange={(event) => handleInput("name", event.target.value)}
                   className={classes.inputBox}
@@ -255,9 +255,9 @@ const Profile = (props) => {
               <Grid item>
                 <ChipInput
                   className={classes.inputBox}
-                  label="Skills"
+                  label="Навыки"
                   variant="outlined"
-                  helperText="Press enter to add skills"
+                  helperText="Нажмите ВВОД для добавления навыков"
                   value={profileDetails.skills}
                   onAdd={(chip) =>
                     setProfileDetails({
@@ -279,7 +279,7 @@ const Profile = (props) => {
               <Grid item>
                 <FileUploadInput
                   className={classes.inputBox}
-                  label="Resume (.pdf)"
+                  label="Резюме (.pdf)"
                   icon={<DescriptionIcon />}
                   uploadTo={apiList.uploadResume}
                   handleInput={handleInput}
@@ -289,7 +289,7 @@ const Profile = (props) => {
               <Grid item>
                 <FileUploadInput
                   className={classes.inputBox}
-                  label="Profile Photo (.jpg/.png)"
+                  label="Фото профиля (.jpg/.png)"
                   icon={<FaceIcon />}
                   uploadTo={apiList.uploadProfileImage}
                   handleInput={handleInput}
@@ -303,7 +303,7 @@ const Profile = (props) => {
               style={{ padding: "10px 50px", marginTop: "30px" }}
               onClick={() => handleUpdate()}
             >
-              Update Details
+              Обновить данные
             </Button>
           </Paper>
         </Grid>

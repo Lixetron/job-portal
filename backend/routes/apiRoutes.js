@@ -16,7 +16,7 @@ router.post('/jobs', jwtAuth, (req, res) => {
 
     if (user.type !== 'recruiter') {
         res.status(401).json({
-            message: 'You don\'t have permissions to add jobs',
+            message: 'У Вас нет прав для создания вакансий',
         });
         return;
     }
@@ -41,7 +41,7 @@ router.post('/jobs', jwtAuth, (req, res) => {
         .save()
         .then(() => {
             res.json({
-                message: 'Job added successfully to the database',
+                message: 'Вакансия успешно добавлена в базу данных',
             });
         })
         .catch((err) => {
@@ -213,7 +213,7 @@ router.get('/jobs', jwtAuth, (req, res) => {
         .then((posts) => {
             if (posts == null) {
                 res.status(404).json({
-                    message: 'No job found',
+                    message: 'Вакансии не найдены',
                 });
 
                 return;
@@ -232,7 +232,7 @@ router.get('/jobs/:id', jwtAuth, (req, res) => {
         .then((job) => {
             if (job == null) {
                 res.status(400).json({
-                    message: 'Job does not exist',
+                    message: 'Вакансия не существует',
                 });
 
                 return;
@@ -252,7 +252,7 @@ router.put('/jobs/:id', jwtAuth, (req, res) => {
 
     if (user.type !== 'recruiter') {
         res.status(401).json({
-            message: 'You don\'t have permissions to change the job details',
+            message: 'У Вас нет прав на изменение данных вакансии',
         });
 
         return;
@@ -266,7 +266,7 @@ router.put('/jobs/:id', jwtAuth, (req, res) => {
 
             if (job == null) {
                 res.status(404).json({
-                    message: 'Job does not exist',
+                    message: 'Вакансия не существует',
                 });
 
                 return;
@@ -288,7 +288,7 @@ router.put('/jobs/:id', jwtAuth, (req, res) => {
                 .save()
                 .then(() => {
                     res.json({
-                        message: 'Job details updated successfully',
+                        message: 'Данные вакансии успешно обновлены',
                     });
                 })
                 .catch((err) => {
@@ -307,7 +307,7 @@ router.delete('/jobs/:id', jwtAuth, (req, res) => {
 
     if (user.type !== 'recruiter') {
         res.status(401).json({
-            message: 'You don\'t have permissions to delete the job',
+            message: 'У Вас недостаточно прав для удаления ваканси',
         });
 
         return;
@@ -320,14 +320,14 @@ router.delete('/jobs/:id', jwtAuth, (req, res) => {
             if (job == null) {
                 res.status(401)
                     .json({
-                        message: 'You don\'t have permissions to delete the job',
+                        message: 'У Вас недостаточно прав для удаления ваканси',
                     });
 
                 return;
             }
 
             res.json({
-                message: 'Job deleted successfully',
+                message: 'Вакансия успешно удалена',
             });
         })
         .catch((err) => {
@@ -345,7 +345,7 @@ router.get('/user', jwtAuth, (req, res) => {
             .then((recruiter) => {
                 if (recruiter == null) {
                     res.status(404).json({
-                        message: 'User does not exist',
+                        message: 'Пользователь не существует',
                     });
                     return;
                 }
@@ -363,7 +363,7 @@ router.get('/user', jwtAuth, (req, res) => {
                 if (jobApplicant == null) {
                     res.status(404)
                         .json({
-                            message: 'User does not exist',
+                            message: 'Пользователь не существует',
                         });
 
                     return;
@@ -388,7 +388,7 @@ router.get('/user/:id', jwtAuth, (req, res) => {
             if (userData === null) {
                 res.status(404)
                     .json({
-                        message: 'User does not exist',
+                        message: 'Пользователь не существует',
                     });
 
                 return;
@@ -403,7 +403,7 @@ router.get('/user/:id', jwtAuth, (req, res) => {
                         if (recruiter == null) {
                             res.status(404)
                                 .json({
-                                    message: 'User does not exist',
+                                    message: 'Пользователь не существует',
                                 });
 
                             return;
@@ -422,7 +422,7 @@ router.get('/user/:id', jwtAuth, (req, res) => {
                         if (jobApplicant == null) {
                             res.status(404)
                                 .json({
-                                    message: 'User does not exist',
+                                    message: 'Пользователь не существует',
                                 });
 
                             return;
@@ -450,7 +450,7 @@ router.put('/user', jwtAuth, (req, res) => {
             .then((recruiter) => {
                 if (recruiter == null) {
                     res.status(404).json({
-                        message: 'User does not exist',
+                        message: 'Пользователь не существует',
                     });
                     return;
                 }
@@ -467,7 +467,7 @@ router.put('/user', jwtAuth, (req, res) => {
                     .save()
                     .then(() => {
                         res.json({
-                            message: 'User information updated successfully',
+                            message: 'Информация о пользователе успешно обновлена',
                         });
                     })
                     .catch((err) => {
@@ -482,7 +482,7 @@ router.put('/user', jwtAuth, (req, res) => {
             .then((jobApplicant) => {
                 if (jobApplicant == null) {
                     res.status(404).json({
-                        message: 'User does not exist',
+                        message: 'Пользователь не существует',
                     });
                     return;
                 }
@@ -506,7 +506,7 @@ router.put('/user', jwtAuth, (req, res) => {
                     .save()
                     .then(() => {
                         res.json({
-                            message: 'User information updated successfully',
+                            message: 'Информация о пользователе успешно обновлена',
                         });
                     })
                     .catch((err) => {
@@ -524,7 +524,7 @@ router.post('/jobs/:id/applications', jwtAuth, (req, res) => {
     const user = req.user;
     if (user.type != 'applicant') {
         res.status(401).json({
-            message: 'You don\'t have permissions to apply for a job',
+            message: 'У Вас нет прав на одобрения на вакансию',
         });
         return;
     }
@@ -548,7 +548,7 @@ router.post('/jobs/:id/applications', jwtAuth, (req, res) => {
             console.log(appliedApplication);
             if (appliedApplication !== null) {
                 res.status(400).json({
-                    message: 'You have already applied for this job',
+                    message: 'Вы уже были приняты на эту вакансию',
                 });
                 return;
             }
@@ -557,7 +557,7 @@ router.post('/jobs/:id/applications', jwtAuth, (req, res) => {
                 .then((job) => {
                     if (job === null) {
                         res.status(404).json({
-                            message: 'Job does not exist',
+                            message: 'Вакансия не существует',
                         });
                         return;
                     }
@@ -593,7 +593,7 @@ router.post('/jobs/:id/applications', jwtAuth, (req, res) => {
                                                         .save()
                                                         .then(() => {
                                                             res.json({
-                                                                message: 'Job application successful',
+                                                                message: 'Заявка на вакансию успешно отправлена',
                                                             });
                                                         })
                                                         .catch((err) => {
@@ -602,14 +602,14 @@ router.post('/jobs/:id/applications', jwtAuth, (req, res) => {
                                                 } else {
                                                     res.status(400).json({
                                                         message:
-                                                            'You already have an accepted job. Hence you cannot apply.',
+                                                            'У Вас уже есть одобренная вакансия, поэтому вы не можете принять.',
                                                     });
                                                 }
                                             });
                                         } else {
                                             res.status(400).json({
                                                 message:
-                                                    'You have 10 active applications. Hence you cannot apply.',
+                                                    'У Вас есть 10 активных заявок, поэтому вы не можете принять.',
                                             });
                                         }
                                     })
@@ -618,7 +618,7 @@ router.post('/jobs/:id/applications', jwtAuth, (req, res) => {
                                     });
                             } else {
                                 res.status(400).json({
-                                    message: 'Application limit reached',
+                                    message: 'Достигнут лимит заявок',
                                 });
                             }
                         })
@@ -640,7 +640,7 @@ router.get('/jobs/:id/applications', jwtAuth, (req, res) => {
     const user = req.user;
     if (user.type != 'recruiter') {
         res.status(401).json({
-            message: 'You don\'t have permissions to view job applications',
+            message: 'У Вас нет прав на просмотр заявок на вакансию',
         });
         return;
     }
@@ -737,6 +737,15 @@ router.put('/applications/:id', jwtAuth, (req, res) => {
     const user = req.user;
     const id = req.params.id;
     const status = req.body.status;
+    const statusRu = {
+        applied: "одобрена",
+        shortlisted: "отобрана",
+        accepted: "принята",
+        rejected: "отклонена",
+        deleted: "удалена",
+        cancelled: "отменена",
+        finished: "завершена",
+    };
 
     // "applied", // when a applicant is applied
     // "shortlisted", // when a applicant is shortlisted
@@ -760,7 +769,7 @@ router.put('/applications/:id', jwtAuth, (req, res) => {
                 .then((application) => {
                     if (application === null) {
                         res.status(404).json({
-                            message: 'Application not found',
+                            message: 'Заявка не найдена',
                         });
                         return;
                     }
@@ -771,7 +780,7 @@ router.put('/applications/:id', jwtAuth, (req, res) => {
                     }).then((job) => {
                         if (job === null) {
                             res.status(404).json({
-                                message: 'Job does not exist',
+                                message: 'Вакансия не существует',
                             });
                             return;
                         }
@@ -826,7 +835,7 @@ router.put('/applications/:id', jwtAuth, (req, res) => {
                                                     )
                                                         .then(() => {
                                                             res.json({
-                                                                message: `Application ${status} successfully`,
+                                                                message: `Заявка успешно ${statusRu[status]}`,
                                                             });
                                                         })
                                                         .catch((err) => {
@@ -834,7 +843,7 @@ router.put('/applications/:id', jwtAuth, (req, res) => {
                                                         });
                                                 } else {
                                                     res.json({
-                                                        message: `Application ${status} successfully`,
+                                                        message: `Заявка успешно ${statusRu[status]}`,
                                                     });
                                                 }
                                             })
@@ -847,7 +856,7 @@ router.put('/applications/:id', jwtAuth, (req, res) => {
                                     });
                             } else {
                                 res.status(400).json({
-                                    message: 'All positions for this job are already filled',
+                                    message: 'Все позиции на эту вакансию уже заполнены',
                                 });
                             }
                         });
@@ -874,17 +883,17 @@ router.put('/applications/:id', jwtAuth, (req, res) => {
                 .then((application) => {
                     if (application === null) {
                         res.status(400).json({
-                            message: 'Application status cannot be updated',
+                            message: 'Статус заявки не может быть обновлен',
                         });
                         return;
                     }
                     if (status === 'finished') {
                         res.json({
-                            message: `Job ${status} successfully`,
+                            message: `Вакансия успешно ${statusRu[status]}`,
                         });
                     } else {
                         res.json({
-                            message: `Application ${status} successfully`,
+                            message: `Заявка успешно ${statusRu[status]}`,
                         });
                     }
                 })
@@ -910,7 +919,7 @@ router.put('/applications/:id', jwtAuth, (req, res) => {
                 .then((tmp) => {
                     console.log(tmp);
                     res.json({
-                        message: `Application ${status} successfully`,
+                        message: `Заявка успешно ${statusRu[status]}`,
                     });
                 })
                 .catch((err) => {
@@ -918,7 +927,7 @@ router.put('/applications/:id', jwtAuth, (req, res) => {
                 });
         } else {
             res.status(401).json({
-                message: 'You don\'t have permissions to update job status',
+                message: 'У Вас недостаточно прав для обновления статуса вакансии',
             });
         }
     }
@@ -1014,7 +1023,7 @@ router.get('/applicants', jwtAuth, (req, res) => {
             .then((applications) => {
                 if (applications.length === 0) {
                     res.status(404).json({
-                        message: 'No applicants found',
+                        message: 'Заявок не найдено',
                     });
                     return;
                 }
@@ -1025,7 +1034,7 @@ router.get('/applicants', jwtAuth, (req, res) => {
             });
     } else {
         res.status(400).json({
-            message: 'You are not allowed to access applicants list',
+            message: 'У Вас нет разрешения до списка заявок',
         });
     }
 });
@@ -1084,7 +1093,7 @@ router.put('/rating', jwtAuth, (req, res) => {
                                                 // update the user's rating
                                                 if (result === null) {
                                                     res.status(400).json({
-                                                        message: 'Error while calculating rating',
+                                                        message: 'Ошибка при расчете оценки',
                                                     });
                                                     return;
                                                 }
@@ -1104,12 +1113,12 @@ router.put('/rating', jwtAuth, (req, res) => {
                                                         if (applicant === null) {
                                                             res.status(400).json({
                                                                 message:
-                                                                    'Error while updating applicant\'s average rating',
+                                                                    'Ошибка при расчете средней оценки работника',
                                                             });
                                                             return;
                                                         }
                                                         res.json({
-                                                            message: 'Rating added successfully',
+                                                            message: 'Оценка успешно добавлена',
                                                         });
                                                     })
                                                     .catch((err) => {
@@ -1127,7 +1136,7 @@ router.put('/rating', jwtAuth, (req, res) => {
                                 // you cannot rate
                                 res.status(400).json({
                                     message:
-                                        'Applicant didn\'t worked under you. Hence you cannot give a rating.',
+                                        'Работник не работает на Вас, поэтому вы не можете его оценить.',
                                 });
                             }
                         })
@@ -1158,7 +1167,7 @@ router.put('/rating', jwtAuth, (req, res) => {
                                     // update the user's rating
                                     if (result === null) {
                                         res.status(400).json({
-                                            message: 'Error while calculating rating',
+                                            message: 'Ошибка при расчете оценки',
                                         });
                                         return;
                                     }
@@ -1177,12 +1186,12 @@ router.put('/rating', jwtAuth, (req, res) => {
                                             if (applicant === null) {
                                                 res.status(400).json({
                                                     message:
-                                                        'Error while updating applicant\'s average rating',
+                                                        'Ошибка при обновлении средней оценки вакансии',
                                                 });
                                                 return;
                                             }
                                             res.json({
-                                                message: 'Rating updated successfully',
+                                                message: 'Оценка успешно обновлена',
                                             });
                                         })
                                         .catch((err) => {
@@ -1253,7 +1262,7 @@ router.put('/rating', jwtAuth, (req, res) => {
                                             .then((result) => {
                                                 if (result === null) {
                                                     res.status(400).json({
-                                                        message: 'Error while calculating rating',
+                                                        message: 'Ошибка при расчете оценки',
                                                     });
                                                     return;
                                                 }
@@ -1272,12 +1281,12 @@ router.put('/rating', jwtAuth, (req, res) => {
                                                         if (foundJob === null) {
                                                             res.status(400).json({
                                                                 message:
-                                                                    'Error while updating job\'s average rating',
+                                                                    'Ошибка при обновлении средней оценки вакансии',
                                                             });
                                                             return;
                                                         }
                                                         res.json({
-                                                            message: 'Rating added successfully',
+                                                            message: 'Оценка успешно добавлена',
                                                         });
                                                     })
                                                     .catch((err) => {
@@ -1295,7 +1304,7 @@ router.put('/rating', jwtAuth, (req, res) => {
                                 // you cannot rate
                                 res.status(400).json({
                                     message:
-                                        'You haven\'t worked for this job. Hence you cannot give a rating.',
+                                        'Вас не одобряли на эту вакансию, поэтому не можете оценивать.',
                                 });
                             }
                         })
@@ -1326,7 +1335,7 @@ router.put('/rating', jwtAuth, (req, res) => {
                                 .then((result) => {
                                     if (result === null) {
                                         res.status(400).json({
-                                            message: 'Error while calculating rating',
+                                            message: 'Ошибка при расчете оценки',
                                         });
                                         return;
                                     }
@@ -1346,12 +1355,12 @@ router.put('/rating', jwtAuth, (req, res) => {
                                         .then((foundJob) => {
                                             if (foundJob === null) {
                                                 res.status(400).json({
-                                                    message: 'Error while updating job\'s average rating',
+                                                    message: 'Ошибка при обновлении средней оценки вакансии',
                                                 });
                                                 return;
                                             }
                                             res.json({
-                                                message: 'Rating added successfully',
+                                                message: 'Оценка успешно добавлена',
                                             });
                                         })
                                         .catch((err) => {

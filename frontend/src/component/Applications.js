@@ -97,7 +97,7 @@ const ApplicationTile = (props) => {
         setPopup({
           open: true,
           severity: "success",
-          message: "Rating updated successfully",
+          message: "Оценка успешно обновлена",
         });
         fetchRating();
         setOpen(false);
@@ -129,6 +129,16 @@ const ApplicationTile = (props) => {
     finished: "#4EA5D9",
   };
 
+  const applicationsStatusRu = {
+    applied: "одобрено",
+    shortlisted: "отобрано",
+    accepted: "принято",
+    rejected: "отклонено",
+    deleted: "удалено",
+    cancelled: "отменено",
+    finished: "завершено",
+  };
+
   return (
     <Paper className={classes.jobTileOuter} elevation={3}>
       <Grid container>
@@ -136,14 +146,14 @@ const ApplicationTile = (props) => {
           <Grid item>
             <Typography variant="h5">{application.job.title}</Typography>
           </Grid>
-          <Grid item>Posted By: {application.recruiter.name}</Grid>
-          <Grid item>Role : {application.job.jobType}</Grid>
-          <Grid item>Salary : &#8377; {application.job.salary} per month</Grid>
+          <Grid item>Автор вакансии: {application.recruiter.name}</Grid>
+          <Grid item>Тип занятости: {application.job.jobType}</Grid>
+          <Grid item>Уровень дохода: BYN {application.job.salary} в месяц</Grid>
           <Grid item>
-            Duration :{" "}
+            Продолжительность:{" "}
             {application.job.duration !== 0
-              ? `${application.job.duration} month`
-              : `Flexible`}
+              ? `${application.job.duration} мес.`
+              : `Варьируется`}
           </Grid>
           <Grid item>
             {application.job.skillsets.map((skill) => (
@@ -165,7 +175,7 @@ const ApplicationTile = (props) => {
                 color: "#ffffff",
               }}
             >
-              {application.status}
+              {applicationsStatusRu[application.status]}
             </Paper>
           </Grid>
           {application.status === "accepted" ||
@@ -180,7 +190,7 @@ const ApplicationTile = (props) => {
                   setOpen(true);
                 }}
               >
-                Rate Job
+                Оценить вакансию
               </Button>
             </Grid>
           ) : null}
@@ -212,7 +222,7 @@ const ApplicationTile = (props) => {
             style={{ padding: "10px 50px" }}
             onClick={() => changeRating()}
           >
-            Submit
+            Подтвердить
           </Button>
         </Paper>
       </Modal>
@@ -259,7 +269,7 @@ const Applications = (props) => {
       style={{ padding: "30px", minHeight: "93vh" }}
     >
       <Grid item>
-        <Typography variant="h2">Applications</Typography>
+        <Typography variant="h2">Заявки</Typography>
       </Grid>
       <Grid
         container
@@ -278,7 +288,7 @@ const Applications = (props) => {
           ))
         ) : (
           <Typography variant="h5" style={{ textAlign: "center" }}>
-            No Applications Found
+            Заявки отсутствуют
           </Typography>
         )}
       </Grid>

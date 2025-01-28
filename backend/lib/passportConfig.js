@@ -37,7 +37,7 @@ passport.use(
                             null,
                             false,
                             {
-                                message: 'User does not exist',
+                                message: 'Пользователь не существует',
                             },
                         );
                     }

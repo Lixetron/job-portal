@@ -146,7 +146,7 @@ const FilterPopup = (props) => {
           </Grid> */}
           <Grid container item alignItems="center">
             <Grid item xs={3}>
-              Sort
+              Сортировать
             </Grid>
             <Grid item container direction="row" xs={9}>
               <Grid
@@ -178,7 +178,7 @@ const FilterPopup = (props) => {
                 </Grid>
                 <Grid item>
                   <label for="name">
-                    <Typography>Name</Typography>
+                    <Typography>ФИО</Typography>
                   </label>
                 </Grid>
                 <Grid item>
@@ -234,7 +234,7 @@ const FilterPopup = (props) => {
                 </Grid>
                 <Grid item>
                   <label for="jobTitle">
-                    <Typography>Job Title</Typography>
+                    <Typography>Наименование вакансии</Typography>
                   </label>
                 </Grid>
                 <Grid item>
@@ -346,7 +346,7 @@ const FilterPopup = (props) => {
                 </Grid>
                 <Grid item>
                   <label for="rating">
-                    <Typography>Rating</Typography>
+                    <Typography>Оценка</Typography>
                   </label>
                 </Grid>
                 <Grid item>
@@ -384,7 +384,7 @@ const FilterPopup = (props) => {
               style={{ padding: "10px 50px" }}
               onClick={() => getData()}
             >
-              Apply
+              Принять
             </Button>
           </Grid>
         </Grid>
@@ -478,14 +478,14 @@ const ApplicationTile = (props) => {
           setPopup({
             open: true,
             severity: "error",
-            message: "Error",
+            message: "Ошибка",
           });
         });
     } else {
       setPopup({
         open: true,
         severity: "error",
-        message: "No resume found",
+        message: "Резюме не найдено",
       });
     }
   };
@@ -559,7 +559,7 @@ const ApplicationTile = (props) => {
           <Grid item>Role: {application.job.jobType}</Grid>
           <Grid item>Applied On: {appliedOn.toLocaleDateString()}</Grid>
           <Grid item>
-            SOP: {application.sop !== "" ? application.sop : "Not Submitted"}
+            сопроводительное письмо: {application.sop !== "" ? application.sop : "Не отправлено"}
           </Grid>
           <Grid item>
             {application.jobApplicant.skills.map((skill) => (
@@ -575,7 +575,7 @@ const ApplicationTile = (props) => {
               color="primary"
               onClick={() => getResume()}
             >
-              Download Resume
+              Загрузить резюме
             </Button>
           </Grid>
           <Grid item container xs>
@@ -603,7 +603,7 @@ const ApplicationTile = (props) => {
                 setOpen(true);
               }}
             >
-              Rate Applicant
+              Оценить заявку
             </Button>
           </Grid>
         </Grid>
@@ -634,7 +634,7 @@ const ApplicationTile = (props) => {
             style={{ padding: "10px 50px" }}
             onClick={() => changeRating()}
           >
-            Submit
+            Подтвердить
           </Button>
         </Paper>
       </Modal>
@@ -655,7 +655,7 @@ const ApplicationTile = (props) => {
           }}
         >
           <Typography variant="h4" style={{ marginBottom: "10px" }}>
-            Are you sure?
+            Вы уверены?
           </Typography>
           <Grid container justify="center" spacing={5}>
             <Grid item>
@@ -667,7 +667,7 @@ const ApplicationTile = (props) => {
                   updateStatus("finished");
                 }}
               >
-                Yes
+                Да
               </Button>
             </Grid>
             <Grid item>
@@ -677,7 +677,7 @@ const ApplicationTile = (props) => {
                 style={{ padding: "10px 50px" }}
                 onClick={() => handleCloseEndJob()}
               >
-                Cancel
+                Отмена
               </Button>
             </Grid>
           </Grid>
@@ -776,7 +776,7 @@ const AcceptedApplicants = (props) => {
         style={{ padding: "30px", minHeight: "93vh" }}
       >
         <Grid item>
-          <Typography variant="h2">Employees</Typography>
+          <Typography variant="h2">Работники</Typography>
         </Grid>
         <Grid item>
           <IconButton onClick={() => setFilterOpen(true)}>
@@ -801,7 +801,7 @@ const AcceptedApplicants = (props) => {
             ))
           ) : (
             <Typography variant="h5" style={{ textAlign: "center" }}>
-              No Applications Found
+              Заявки отсутствуют
             </Typography>
           )}
         </Grid>

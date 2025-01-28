@@ -157,16 +157,16 @@ const JobTile = (props) => {
           <Grid item>
             <Rating value={job.rating !== -1 ? job.rating : null} readOnly />
           </Grid>
-          <Grid item>Role : {job.jobType}</Grid>
-          <Grid item>Salary : &#8377; {job.salary} per month</Grid>
+          <Grid item>Тип занятости: {job.jobType}</Grid>
+          <Grid item>Уровень дохода: BYN {job.salary} в месяц</Grid>
           <Grid item>
-            Duration :{" "}
-            {job.duration !== 0 ? `${job.duration} month` : `Flexible`}
+            Продолжительность :{" "}
+            {job.duration !== 0 ? `${job.duration} мес.` : `Варьируется`}
           </Grid>
-          <Grid item>Date Of Posting: {postedOn.toLocaleDateString()}</Grid>
-          <Grid item>Number of Applicants: {job.maxApplicants}</Grid>
+          <Grid item>Дата публикации: {postedOn.toLocaleDateString()}</Grid>
+          <Grid item>Количество заявок: {job.maxApplicants}</Grid>
           <Grid item>
-            Remaining Number of Positions:{" "}
+            Оставшееся количество позиций:{" "}
             {job.maxPositions - job.acceptedCandidates}
           </Grid>
           <Grid item>
@@ -183,7 +183,7 @@ const JobTile = (props) => {
               className={classes.statusBlock}
               onClick={() => handleClick(`/job/applications/${job._id}`)}
             >
-              View Applications
+              Посмотреть заявки
             </Button>
           </Grid>
           <Grid item>
@@ -198,7 +198,7 @@ const JobTile = (props) => {
                 color: "#fff",
               }}
             >
-              Update Details
+              Обновить данные
             </Button>
           </Grid>
           <Grid item>
@@ -210,7 +210,7 @@ const JobTile = (props) => {
                 setOpen(true);
               }}
             >
-              Delete Job
+              Удалить вакансию
             </Button>
           </Grid>
         </Grid>
@@ -228,7 +228,7 @@ const JobTile = (props) => {
           }}
         >
           <Typography variant="h4" style={{ marginBottom: "10px" }}>
-            Are you sure?
+            Вы уверены?
           </Typography>
           <Grid container justify="center" spacing={5}>
             <Grid item>
@@ -238,7 +238,7 @@ const JobTile = (props) => {
                 style={{ padding: "10px 50px" }}
                 onClick={() => handleDelete()}
               >
-                Delete
+                Удалить
               </Button>
             </Grid>
             <Grid item>
@@ -248,7 +248,7 @@ const JobTile = (props) => {
                 style={{ padding: "10px 50px" }}
                 onClick={() => handleClose()}
               >
-                Cancel
+                Отменить
               </Button>
             </Grid>
           </Grid>
@@ -271,7 +271,7 @@ const JobTile = (props) => {
           }}
         >
           <Typography variant="h4" style={{ marginBottom: "10px" }}>
-            Update Details
+            Обновить данные
           </Typography>
           <Grid
             container
@@ -296,7 +296,7 @@ const JobTile = (props) => {
             </Grid>
             <Grid item>
               <TextField
-                label="Maximum Number Of Applicants"
+                label="Максимальное количество заявок"
                 type="number"
                 variant="outlined"
                 value={jobDetails.maxApplicants}
@@ -309,7 +309,7 @@ const JobTile = (props) => {
             </Grid>
             <Grid item>
               <TextField
-                label="Positions Available"
+                label="Доступно позиций"
                 type="number"
                 variant="outlined"
                 value={jobDetails.maxPositions}
@@ -329,7 +329,7 @@ const JobTile = (props) => {
                 style={{ padding: "10px 50px" }}
                 onClick={() => handleJobUpdate()}
               >
-                Update
+                Обновить
               </Button>
             </Grid>
             <Grid item>
@@ -339,7 +339,7 @@ const JobTile = (props) => {
                 style={{ padding: "10px 50px" }}
                 onClick={() => handleCloseUpdate()}
               >
-                Cancel
+                Отменить
               </Button>
             </Grid>
           </Grid>
@@ -364,7 +364,7 @@ const FilterPopup = (props) => {
         <Grid container direction="column" alignItems="center" spacing={3}>
           <Grid container item alignItems="center">
             <Grid item xs={3}>
-              Job Type
+              Тип занятости
             </Grid>
             <Grid
               container
@@ -390,7 +390,7 @@ const FilterPopup = (props) => {
                       }}
                     />
                   }
-                  label="Full Time"
+                  label="Полная занятость"
                 />
               </Grid>
               <Grid item>
@@ -410,7 +410,7 @@ const FilterPopup = (props) => {
                       }}
                     />
                   }
-                  label="Part Time"
+                  label="Частичная занятость"
                 />
               </Grid>
               <Grid item>
@@ -430,7 +430,7 @@ const FilterPopup = (props) => {
                       }}
                     />
                   }
-                  label="Work From Home"
+                  label="Удаленная работа"
                 />
               </Grid>
             </Grid>
@@ -461,7 +461,7 @@ const FilterPopup = (props) => {
           </Grid>
           <Grid container item alignItems="center">
             <Grid item xs={3}>
-              Duration
+              Продолжительность
             </Grid>
             <Grid item xs={9}>
               <TextField
@@ -477,7 +477,7 @@ const FilterPopup = (props) => {
                   })
                 }
               >
-                <MenuItem value="0">All</MenuItem>
+                <MenuItem value="0">Все</MenuItem>
                 <MenuItem value="1">1</MenuItem>
                 <MenuItem value="2">2</MenuItem>
                 <MenuItem value="3">3</MenuItem>
@@ -490,7 +490,7 @@ const FilterPopup = (props) => {
           </Grid>
           <Grid container item alignItems="center">
             <Grid item xs={3}>
-              Sort
+              Сортировать
             </Grid>
             <Grid item container direction="row" xs={9}>
               <Grid
@@ -522,7 +522,7 @@ const FilterPopup = (props) => {
                 </Grid>
                 <Grid item>
                   <label for="salary">
-                    <Typography>Salary</Typography>
+                    <Typography>Уровень дохода</Typography>
                   </label>
                 </Grid>
                 <Grid item>
@@ -578,7 +578,7 @@ const FilterPopup = (props) => {
                 </Grid>
                 <Grid item>
                   <label for="duration">
-                    <Typography>Duration</Typography>
+                    <Typography>Продолжительность</Typography>
                   </label>
                 </Grid>
                 <Grid item>
@@ -634,7 +634,7 @@ const FilterPopup = (props) => {
                 </Grid>
                 <Grid item>
                   <label for="rating">
-                    <Typography>Rating</Typography>
+                    <Typography>Оценка</Typography>
                   </label>
                 </Grid>
                 <Grid item>
@@ -671,7 +671,7 @@ const FilterPopup = (props) => {
               style={{ padding: "10px 50px" }}
               onClick={() => getData()}
             >
-              Apply
+              Принять
             </Button>
           </Grid>
         </Grid>
@@ -780,7 +780,7 @@ const MyJobs = (props) => {
         setPopup({
           open: true,
           severity: "error",
-          message: "Error",
+          message: "Ошибка",
         });
       });
   };
@@ -802,11 +802,11 @@ const MyJobs = (props) => {
           alignItems="center"
         >
           <Grid item xs>
-            <Typography variant="h2">My Jobs</Typography>
+            <Typography variant="h2">Мои вакансии</Typography>
           </Grid>
           <Grid item xs>
             <TextField
-              label="Search Jobs"
+              label="Поиск вакансий"
               value={searchOptions.query}
               onChange={(event) =>
                 setSearchOptions({
@@ -853,7 +853,7 @@ const MyJobs = (props) => {
             })
           ) : (
             <Typography variant="h5" style={{ textAlign: "center" }}>
-              No jobs found
+              Вакансии не найдены
             </Typography>
           )}
         </Grid>
