@@ -130,9 +130,9 @@ const ApplicationTile = (props) => {
   };
 
   const applicationsStatusRu = {
-    applied: "одобрено",
+    applied: "принято",
     shortlisted: "отобрано",
-    accepted: "принято",
+    accepted: "одобрено",
     rejected: "отклонено",
     deleted: "удалено",
     cancelled: "отменено",
@@ -160,10 +160,10 @@ const ApplicationTile = (props) => {
               <Chip label={skill} style={{ marginRight: "2px" }} />
             ))}
           </Grid>
-          <Grid item>Applied On: {appliedOn.toLocaleDateString()}</Grid>
+          <Grid item>Предоставлено: {appliedOn.toLocaleDateString()}</Grid>
           {application.status === "accepted" ||
           application.status === "finished" ? (
-            <Grid item>Joined On: {joinedOn.toLocaleDateString()}</Grid>
+            <Grid item>Присоединился: {joinedOn.toLocaleDateString()}</Grid>
           ) : null}
         </Grid>
         <Grid item container direction="column" xs={3}>

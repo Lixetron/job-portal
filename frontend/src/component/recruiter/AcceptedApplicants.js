@@ -290,7 +290,7 @@ const FilterPopup = (props) => {
                 </Grid>
                 <Grid item>
                   <label for="dateOfJoining">
-                    <Typography>Date of Joining</Typography>
+                    <Typography>Дата присоединения</Typography>
                   </label>
                 </Grid>
                 <Grid item>
@@ -419,7 +419,7 @@ const ApplicationTile = (props) => {
         setPopup({
           open: true,
           severity: "success",
-          message: "Rating updated successfully",
+          message: "Оценка успешно обновлена",
         });
         // fetchRating();
         getData();
@@ -555,11 +555,11 @@ const ApplicationTile = (props) => {
               readOnly
             />
           </Grid>
-          <Grid item>Job Title: {application.job.title}</Grid>
-          <Grid item>Role: {application.job.jobType}</Grid>
-          <Grid item>Applied On: {appliedOn.toLocaleDateString()}</Grid>
+          <Grid item>Наименование вакансии: {application.job.title}</Grid>
+          <Grid item>Тип занятости: {application.job.jobType}</Grid>
+          <Grid item>Предоставлено: {appliedOn.toLocaleDateString()}</Grid>
           <Grid item>
-            сопроводительное письмо: {application.sop !== "" ? application.sop : "Не отправлено"}
+            Cопроводительное письмо: {application.sop !== "" ? application.sop : "Не предоставлено"}
           </Grid>
           <Grid item>
             {application.jobApplicant.skills.map((skill) => (
@@ -591,7 +591,7 @@ const ApplicationTile = (props) => {
                 setOpenEndJob(true);
               }}
             >
-              End Job
+              Завершить работу
             </Button>
           </Grid>
           <Grid item>

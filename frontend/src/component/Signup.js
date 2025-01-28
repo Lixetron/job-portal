@@ -53,7 +53,7 @@ const MultifieldInput = (props) => {
         >
           <Grid item xs={6}>
             <TextField
-              label={`Institution Name #${key + 1}`}
+              label={`Учреждение образования #${key + 1}`}
               value={education[key].institutionName}
               onChange={(event) => {
                 const newEdu = [...education];
@@ -65,7 +65,7 @@ const MultifieldInput = (props) => {
           </Grid>
           <Grid item xs={3}>
             <TextField
-              label="Start Year"
+              label="Год поступления"
               value={obj.startYear}
               variant="outlined"
               type="number"
@@ -78,7 +78,7 @@ const MultifieldInput = (props) => {
           </Grid>
           <Grid item xs={3}>
             <TextField
-              label="End Year"
+              label="Год выпуска"
               value={obj.endYear}
               variant="outlined"
               type="number"
@@ -107,7 +107,7 @@ const MultifieldInput = (props) => {
           }
           className={classes.inputBox}
         >
-          Add another institution details
+          Добавить информацию об образовании
         </Button>
       </Grid>
     </>
@@ -191,7 +191,7 @@ const Login = (props) => {
           required: true,
           untouched: false,
           error: true,
-          message: `${obj[0].toUpperCase() + obj.substr(1)} is required`,
+          message: `${obj[0].toUpperCase() + obj.substr(1)} обязательно для ввода`,
         };
       } else {
         tmpErrorHandler[obj] = inputErrorHandler[obj];
@@ -228,7 +228,7 @@ const Login = (props) => {
           setPopup({
             open: true,
             severity: "success",
-            message: "Logged in successfully",
+            message: "Успешная авторизация",
           });
           console.log(response);
         })
@@ -245,7 +245,7 @@ const Login = (props) => {
       setPopup({
         open: true,
         severity: "error",
-        message: "Incorrect Input",
+        message: "Некорректный ввод",
       });
     }
   };
@@ -258,7 +258,7 @@ const Login = (props) => {
           required: true,
           untouched: false,
           error: true,
-          message: `${obj[0].toUpperCase() + obj.substr(1)} is required`,
+          message: `${obj[0].toUpperCase() + obj.substr(1)} обязательно для ввода`,
         };
       } else {
         tmpErrorHandler[obj] = inputErrorHandler[obj];
@@ -298,7 +298,7 @@ const Login = (props) => {
           setPopup({
             open: true,
             severity: "success",
-            message: "Logged in successfully",
+            message: "Успешная авторизация",
           });
           console.log(response);
         })
@@ -315,7 +315,7 @@ const Login = (props) => {
       setPopup({
         open: true,
         severity: "error",
-        message: "Incorrect Input",
+        message: "Некорректный ввод",
       });
     }
   };
@@ -327,7 +327,7 @@ const Login = (props) => {
       <Grid container direction="column" spacing={4} alignItems="center">
         <Grid item>
           <Typography variant="h3" component="h2">
-            Signup
+            Регистрация
           </Typography>
         </Grid>
         <Grid item>
@@ -341,13 +341,13 @@ const Login = (props) => {
               handleInput("type", event.target.value);
             }}
           >
-            <MenuItem value="applicant">Applicant</MenuItem>
-            <MenuItem value="recruiter">Recruiter</MenuItem>
+            <MenuItem value="applicant">Соискатель</MenuItem>
+            <MenuItem value="recruiter">Рекрутер</MenuItem>
           </TextField>
         </Grid>
         <Grid item>
           <TextField
-            label="Name"
+            label="ФИО"
             value={signupDetails.name}
             onChange={(event) => handleInput("name", event.target.value)}
             className={classes.inputBox}
@@ -355,7 +355,7 @@ const Login = (props) => {
             helperText={inputErrorHandler.name.message}
             onBlur={(event) => {
               if (event.target.value === "") {
-                handleInputError("name", true, "Name is required");
+                handleInputError("name", true, "Поле \"ФИО\" обязательно для ввода");
               } else {
                 handleInputError("name", false, "");
               }
@@ -365,7 +365,7 @@ const Login = (props) => {
         </Grid>
         <Grid item>
           <EmailInput
-            label="Email"
+            label="Электронная почта"
             value={signupDetails.email}
             onChange={(event) => handleInput("email", event.target.value)}
             inputErrorHandler={inputErrorHandler}
@@ -376,7 +376,7 @@ const Login = (props) => {
         </Grid>
         <Grid item>
           <PasswordInput
-            label="Password"
+            label="Пароль"
             value={signupDetails.password}
             onChange={(event) => handleInput("password", event.target.value)}
             className={classes.inputBox}
@@ -384,7 +384,7 @@ const Login = (props) => {
             helperText={inputErrorHandler.password.message}
             onBlur={(event) => {
               if (event.target.value === "") {
-                handleInputError("password", true, "Password is required");
+                handleInputError("password", true, "Поле \"Пароль\" обязательно для ввода");
               } else {
                 handleInputError("password", false, "");
               }
@@ -400,9 +400,9 @@ const Login = (props) => {
             <Grid item>
               <ChipInput
                 className={classes.inputBox}
-                label="Skills"
+                label="Навыки"
                 variant="outlined"
-                helperText="Press enter to add skills"
+                helperText="Нажмите ВВОД для добавления навыков"
                 onChange={(chips) =>
                   setSignupDetails({ ...signupDetails, skills: chips })
                 }
@@ -411,7 +411,7 @@ const Login = (props) => {
             <Grid item>
               <FileUploadInput
                 className={classes.inputBox}
-                label="Resume (.pdf)"
+                label="Резюме (.pdf)"
                 icon={<DescriptionIcon />}
                 // value={files.resume}
                 // onChange={(event) =>
@@ -428,7 +428,7 @@ const Login = (props) => {
             <Grid item>
               <FileUploadInput
                 className={classes.inputBox}
-                label="Profile Photo (.jpg/.png)"
+                label="Фото профиля (.jpg/.png)"
                 icon={<FaceIcon />}
                 // value={files.profileImage}
                 // onChange={(event) =>
@@ -447,7 +447,7 @@ const Login = (props) => {
           <>
             <Grid item style={{ width: "100%" }}>
               <TextField
-                label="Bio (upto 250 words)"
+                label="О себе (до 250 слов)"
                 multiline
                 rows={8}
                 style={{ width: "100%" }}
@@ -485,7 +485,7 @@ const Login = (props) => {
             }}
             className={classes.submitButton}
           >
-            Signup
+            ОК
           </Button>
         </Grid>
       </Grid>

@@ -281,7 +281,7 @@ const JobTile = (props) => {
           >
             <Grid item>
               <TextField
-                label="Application Deadline"
+                label="Крайний срок подачи заявок"
                 type="datetime-local"
                 value={jobDetails.deadline.substr(0, 16)}
                 onChange={(event) => {
@@ -437,7 +437,7 @@ const FilterPopup = (props) => {
           </Grid>
           <Grid container item alignItems="center">
             <Grid item xs={3}>
-              Salary
+              Уровень дохода
             </Grid>
             <Grid item xs={9}>
               <Slider

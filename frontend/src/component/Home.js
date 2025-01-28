@@ -114,7 +114,7 @@ const JobTile = (props) => {
           <Grid item>Уровень дохода: BYN {job.salary} в месяц</Grid>
           <Grid item>
             Продолжительность:{" "}
-            {job.duration !== 0 ? `${job.duration} мес.` : `Flexible`}
+            {job.duration !== 0 ? `${job.duration} мес.` : `Варьируется`}
           </Grid>
           <Grid item>Автор вакансии: {job.recruiter.name}</Grid>
           <Grid item>Крайний срок подачи заявок: {deadline}</Grid>
@@ -270,7 +270,7 @@ const FilterPopup = (props) => {
           </Grid>
           <Grid container item alignItems="center">
             <Grid item xs={3}>
-              Salary
+              Уровень дохода
             </Grid>
             <Grid item xs={9}>
               <Slider

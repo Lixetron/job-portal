@@ -119,7 +119,7 @@ const FilterPopup = (props) => {
                       }}
                     />
                   }
-                  label="Одобрено"
+                  label="Принято"
                 />
               </Grid>
               <Grid item>
@@ -574,19 +574,19 @@ const ApplicationTile = (props) => {
               readOnly
             />
           </Grid>
-          <Grid item>Applied On: {appliedOn.toLocaleDateString()}</Grid>
+          <Grid item>Предоставлено: {appliedOn.toLocaleDateString()}</Grid>
           <Grid item>
-            Education:{" "}
+            Образование:{" "}
             {application.jobApplicant.education
               .map((edu) => {
                 return `${edu.institutionName} (${edu.startYear}-${
-                  edu.endYear ? edu.endYear : "Ongoing"
+                  edu.endYear ? edu.endYear : "настоящее время"
                 })`;
               })
               .join(", ")}
           </Grid>
           <Grid item>
-            сопроводительное письмо: {application.sop !== "" ? application.sop : "Не отправлено"}
+            Cопроводительное письмо: {application.sop !== "" ? application.sop : "Не предоставлено"}
           </Grid>
           <Grid item>
             {application.jobApplicant.skills.map((skill) => (
@@ -735,7 +735,7 @@ const JobApplications = (props) => {
         style={{ padding: "30px", minHeight: "93vh" }}
       >
         <Grid item>
-          <Typography variant="h2">Applications</Typography>
+          <Typography variant="h2">Заявки</Typography>
         </Grid>
         <Grid item>
           <IconButton onClick={() => setFilterOpen(true)}>

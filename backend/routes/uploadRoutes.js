@@ -22,7 +22,7 @@ router.post(
         if (!['.pdf'].includes(file?.detectedFileExtension)) {
             res.status(400)
                 .json({
-                    message: 'Invalid format',
+                    message: 'Неверный формат',
                 });
         } else {
             const filename = `${uuidv4()}${file?.detectedFileExtension}`;
@@ -30,14 +30,14 @@ router.post(
             asyncPipeline(file?.stream, fs.createWriteStream(`${__dirname}/../public/resume/${filename}`))
                 .then(() => {
                     res.send({
-                        message: 'File uploaded successfully',
+                        message: 'Файл успешно загружен',
                         url: `/host/resume/${filename}`,
                     });
                 })
                 .catch((err) => {
                     res.status(400)
                         .json({
-                            message: 'Error while uploading',
+                            message: 'Ошибка при загрузке',
                             description: err,
                         });
                 });
@@ -53,7 +53,7 @@ router.post(
         if (!['.jpg', '.png'].includes(file?.detectedFileExtension)) {
             res.status(400)
                 .json({
-                    message: 'Invalid format',
+                    message: 'Неверный формат',
                 });
         } else {
             const filename = `${uuidv4()}${file?.detectedFileExtension}`;
@@ -61,14 +61,14 @@ router.post(
             asyncPipeline(file.stream, fs.createWriteStream(`${__dirname}/../public/profile/${filename}`))
                 .then(() => {
                     res.send({
-                        message: 'Profile image uploaded successfully',
+                        message: 'Фотография профиля успешно загружена',
                         url: `/host/profile/${filename}`,
                     });
                 })
                 .catch((err) => {
                     res.status(400)
                         .json({
-                            message: 'Error while uploading',
+                            message: 'Ошибка при загрузке',
                             description: err,
                         });
                 });
